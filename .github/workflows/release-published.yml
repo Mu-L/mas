@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: 🚰 Apply pr-pull label to custom tap formula bump PR
         env:
-          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          GH_TOKEN: ${{github.token}}
         run: |
           unsetopt errexit
           bump_url="$(gh release -R "${GITHUB_REPOSITORY}" download "${GITHUB_REF_NAME}" -p bump.url -O - 2>/dev/null)"
